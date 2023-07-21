@@ -16,7 +16,7 @@ import { Toaster } from "react-hot-toast";
 const queryClinet = new QueryClient({
   defaultOptions: {
     queries: {
-      staleTime: 60 * 1000,
+      staleTime: 0,
     },
   },
 });
@@ -60,7 +60,6 @@ const App = () => {
             color: "var(--color-grey-700)",
           },
         }}
-        
       />
     </QueryClientProvider>
   );
