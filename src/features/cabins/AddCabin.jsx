@@ -9,8 +9,6 @@ const AddCabin = () => {
       <Button onClick={() => setIsOpenModal((show) => !show)}>
         Add new cabin
       </Button>
-      {/* {isOpenModal && <CreateCabinForm />}
-       */}
       {isOpenModal && (
         <Modal onClose={() => setIsOpenModal(false)}>
           <CreateCabinForm onClose={() => setIsOpenModal(false)} />

@@ -54,7 +54,7 @@ const Button = styled.button`
 
 const Modal = ({ children, onClose }) => {
   return createPortal(
-    <Overlay onClick={onClose}>
+    <Overlay>
       <StyledModal>
         <Button onClick={onClose}>
           <HiXMark />
