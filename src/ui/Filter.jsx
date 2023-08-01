@@ -40,10 +40,15 @@ const Filter = ({ filterField, options }) => {
   const [searchParams, setSearchParams] = useSearchParams();
   const currentFilterValue =
     searchParams.get(filterField) || options.at(0).value;
+
   const handleClick = (value) => {
     searchParams.set(filterField, value);
+    if (searchParams.get("page")) {
+      searchParams.set("page", 1);
+    }
     setSearchParams(searchParams);
   };
+
   return (
     <StyledFilter>
       {options.map((option) => (

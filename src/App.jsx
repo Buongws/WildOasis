@@ -12,8 +12,10 @@ import Users from "../src/pages/Users";
 import AppLayout from "./ui/AppLayout";
 import GlobalStyles from "../src/styles/GlobalStyles";
 import { Toaster } from "react-hot-toast";
+import Booking from "./pages/Booking";
+import Checkin from "./pages/Checkin";
 
-const queryClinet = new QueryClient({
+const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
       staleTime: 0,
@@ -23,7 +25,7 @@ const queryClinet = new QueryClient({
 
 const App = () => {
   return (
-    <QueryClientProvider client={queryClinet}>
+    <QueryClientProvider client={queryClient}>
       <ReactQueryDevtools initialIsOpen={false} />
       <GlobalStyles />
       <BrowserRouter>
@@ -32,6 +34,8 @@ const App = () => {
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/cabins" element={<Cabins />} />
             <Route path="/bookings" element={<Bookings />} />
+            <Route path="/bookings/:bookingId" element={<Booking />} />
+            <Route path="/checkin/:bookingId" element={<Checkin />} />
             <Route path="/users" element={<Users />} />
             <Route path="/settings" element={<Settings />} />
             <Route path="/account" element={<Account />} />
