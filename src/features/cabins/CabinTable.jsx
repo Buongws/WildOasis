@@ -8,7 +8,7 @@ import Empty from "../../ui/Empty";
 function CabinTable() {
   const { isLoading, cabins } = useCabins();
   const [searchParams] = useSearchParams();
-  console.log(searchParams);
+
   if (isLoading) return <Spinner />;
 
   // 1,Filter

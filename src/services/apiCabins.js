@@ -1,5 +1,16 @@
 import supabase, { supabaseUrl } from "./supabase";
-// https://wgbktafvgckurcrqlnke.supabase.co/storage/v1/object/public/cabin-images/cabin-001.jpg
+
+export async function getCabins() {
+  const { data, error } = await supabase.from("cabins").select("*");
+
+  if (error) {
+    console.error(error);
+    throw new Error("Cabins could not be loaded");
+  }
+
+  return data;
+}
+
 export async function createEditCabin(newCabin, id) {
   const hasImagePath = newCabin.image?.startsWith?.(supabaseUrl);
 
@@ -56,11 +67,3 @@ export async function deleteCabin(id) {
 
   return data;
 }
-export const getCabins = async () => {
-  const { data, error } = await supabase.from("cabins").select("*");
-  if (error) {
-    console.error(error);
-    throw new Error("Cabins could not be loaded");
-  }
-  return data;
-};
